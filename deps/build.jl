@@ -9,7 +9,7 @@ function install_envs()
       println("done")
     end
   else
-    println("building minimial)
+    println("building minimial")
     run(`pip install --user -e .`)
     @info("Minimal installation has been performed")
     @info("To install everything, set ENV[\"GYM_ENVS\"]=all")
