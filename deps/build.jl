@@ -3,10 +3,13 @@ function install_envs()
   if haskey(ENV, "GYM_ENVS")
     envs = split(ENV["GYM_ENVS"], ":")
     for env in envs
+      println(env)
       run(`pip install --user -e .[$env]`)
       @info("$env environment has been installed")
+      println("done")
     end
   else
+    println("building minimial)
     run(`pip install --user -e .`)
     @info("Minimal installation has been performed")
     @info("To install everything, set ENV[\"GYM_ENVS\"]=all")
@@ -40,10 +43,12 @@ try
 catch
   if !isdir("gym")
     @info("Downloading OpenAi gym")
-    run(`git clone https://github.com/openai/gym.git`)
+    #run(`git clone https://github.com/openai/gym.git`)
+    run(`pip install gym==0.12.1`)
+    println("Downloading gym=0.12.1")
   end
   @info("Installing OpenAi gym")
-  install_envs()
+  #install_envs()
   filename = "whichgym"
   f = open(filename, "w")
   write(f, "OWN")
