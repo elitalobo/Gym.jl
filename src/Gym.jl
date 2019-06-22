@@ -8,7 +8,7 @@ const gym = PyNULL()
 const roboschool = PyNULL()
 
 function __init__()
-    copy!(roboschool, pyimport("roboschool"))
+    #copy!(roboschool, pyimport("roboschool"))
     copy!(gym, pyimport("gym"))
     
 end
