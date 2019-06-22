@@ -19,6 +19,7 @@ include("env.jl")
 Shows available environments
 """
 function show_available_envs()
+    println("hello")
     println(map(x->x.id, gym.envs.registry.all()))
 end
 
